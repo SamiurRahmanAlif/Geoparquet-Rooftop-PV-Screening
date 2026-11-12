@@ -3,6 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/)
 [![GeoParquet](https://img.shields.io/badge/Format-GeoParquet_1.1-green.svg)](https://geoparquet.org/)
+[![DOI](https://zenodo.org/badge/1455002555.svg)](https://doi.org/10.5281/zenodo.24158060)
 
 A reproducible, modular geospatial big data processing architecture for national-scale rooftop photovoltaic (PV) screening using columnar **GeoParquet** storage, projection-aware metric area extraction, and explicit regional spatial attribution.
 
@@ -151,10 +152,12 @@ pip install -r requirements.txt
 If you use this codebase or architectural workflow in your research, please cite:
 
 ```bibtex
-@article{alif2026geoparquet_pv,
+@software{alif2026geoparquet_pv,
   title   = {Large-Scale Geospatial Data Processing for Rooftop PV Screening Using GeoParquet: Spatial Attribution and National Building-Footprint Analysis},
   author  = {Alif, Samiur Rahman and Shuvo, Md Muslim Uddin and Dhrubo, Ahmed Faizul Haque and Hasan, ASM Jahid and Qayum, Mohammad Abdul and Khan, Mohammad Ashrafuzzaman and Sajjad, Mohsin},
-  year    = {2026}
+  year    = {2026},
+  doi     = {10.5281/zenodo.24158060},
+  url     = {[https://doi.org/10.5281/zenodo.24158060](https://doi.org/10.5281/zenodo.24158060)}
 }
 ```
 
