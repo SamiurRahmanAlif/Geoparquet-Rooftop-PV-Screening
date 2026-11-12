@@ -10,7 +10,7 @@ A reproducible, modular geospatial big data processing architecture for national
 
 ## Overview
 
-Assessing distributed rooftop PV potential at a national scale is constrained by storage overhead, coordinate-system requirements, and the complexities of spatial attribution in multi-million-polygon building-footprint inventories. This repository provides the computational workflow accompanying the paper *"Large-Scale Geospatial Data Processing for Rooftop PV Screening Using GeoParquet: Spatial Attribution and National Building-Footprint Analysis"*.
+Assessing distributed rooftop PV potential at a national scale is constrained by the storage overhead, coordinate-system requirements, and spatial attribution complexities of multi-million-polygon building-footprint inventories. This repository provides the computational workflow accompanying the paper *"Large-Scale Geospatial Data Processing for Rooftop PV Screening Using GeoParquet: Spatial Attribution and National Building-Footprint Analysis"*.
 
 Evaluated across **15,189,620 unique building footprints** in Bangladesh, the framework demonstrates:
 
@@ -57,32 +57,16 @@ The pipeline decouples persistent data management, spatial indexing, metric geom
 ## Repository Structure
 
 ```text
-geoparquet-rooftop-pv-screening/
-├── config/
-│   └── scenario_params.yaml          # Scenario constants (κ_P, Y_ref, μ, CRS rules)
+Geoparquet-Rooftop-PV-Screening/
 ├── data/
-│   ├── README.md                     # Instructions to download source datasets
-│   ├── sample/                       # Lightweight sample tiles & AOIs for quick testing
-│   ├── raw/                          # Raw Microsoft GeoJSON files (gitignored)
-│   └── processed/                    # Spatially partitioned GeoParquet files (gitignored)
-├── src/
-│   ├── 01_ingest_and_validate.py     # Deduplicates source files & validates geometries
-│   ├── 02_geojson_to_geoparquet.py   # Converts GeoJSON to index-free GeoParquet
-│   ├── 03_spatial_tiling_index.py    # Partitions data into spatial processing tiles
-│   ├── 04_projection_extraction.py   # Auto-UTM selection, bbox filter & intersection
-│   ├── 05_pv_scenario_model.py       # Geometric baseline & sensitivity calculations
-│   └── 06_regional_aggregation.py    # AOI aggregation & attribution excess accounting
+│   └── README.md             # Instructions to download Microsoft footprints & boundaries
 ├── notebooks/
-│   ├── 01_storage_benchmark.ipynb    # Reproduces storage efficiency metrics
-│   └── 02_results_and_figures.ipynb  # Reproduces division tables & sensitivity plots
-├── outputs/
-│   ├── tables/                       # Summary CSVs (Storage, Division results, Sensitivity)
-│   └── figures/                      # High-resolution workflow & regional charts
-├── CITATION.cff                      # Citation metadata
-├── environment.yml                   # Conda environment specification
-├── LICENSE                           # MIT License
-├── README.md                         # Project documentation
-└── requirements.txt                  # Python package dependencies
+│   └── main.ipynb            # End-to-end geospatial processing, GeoParquet & PV screening notebook
+├── CITATION.cff              # Academic citation metadata
+├── LICENSE                   # MIT License
+├── README.md                 # Project documentation
+├── requirements.txt          # Python package dependencies
+└── tile_index.pkl            # Precomputed spatial tile index for Bangladesh
 ```
 
 ---
@@ -122,40 +106,27 @@ geoparquet-rooftop-pv-screening/
 ## Installation & Quickstart
 
 ### Prerequisites
-The framework is built in Python using `geopandas`, `shapely`, `pyproj`, `pandas`, `numpy`, and `pyarrow`.
+The framework is implemented in Python using `geopandas`, `shapely`, `pyproj`, `pandas`, `numpy`, and `pyarrow`.
 
 ```bash
 # 1. Clone the repository
-git clone [https://github.com/SamiurRahmanAlif/geoparquet-rooftop-pv-screening.git](https://github.com/SamiurRahmanAlif/geoparquet-rooftop-pv-screening.git)
-cd geoparquet-rooftop-pv-screening
+git clone [https://github.com/SamiurRahmanAlif/Geoparquet-Rooftop-PV-Screening.git](https://github.com/SamiurRahmanAlif/Geoparquet-Rooftop-PV-Screening.git)
+cd Geoparquet-Rooftop-PV-Screening
 
-# 2. Set up the Conda environment (recommended for GDAL/GEOS/PROJ dependencies)
-conda env create -f environment.yml
-conda activate geoparquet-pv
+# 2. Create and activate a virtual environment
+python -m venv .venv
+source .venv/bin/activate        # On Windows: .venv\Scripts\activate
 
-# Or install via pip
+# 3. Install dependencies
 pip install -r requirements.txt
 ```
 
-### Running on Sample Data
-```bash
-python src/04_projection_extraction.py --config config/scenario_params.yaml --sample
-python src/05_pv_scenario_model.py --config config/scenario_params.yaml --sample
-python src/06_regional_aggregation.py --config config/scenario_params.yaml --sample
-```
-
-### Running the Full National Pipeline
-1. Download the Bangladesh building-footprint GeoJSON tiles into `data/raw/` (see `data/README.md`).
-2. Place the administrative boundary polygons (8 divisions / 64 districts) in `data/raw/boundaries/`.
-3. Execute the sequential pipeline:
-```bash
-python src/01_ingest_and_validate.py --input data/raw/
-python src/02_geojson_to_geoparquet.py --input data/raw/ --output data/processed/
-python src/03_spatial_tiling_index.py --input data/processed/
-python src/04_projection_extraction.py --config config/scenario_params.yaml
-python src/05_pv_scenario_model.py --config config/scenario_params.yaml
-python src/06_regional_aggregation.py --config config/scenario_params.yaml
-```
+### Running the Pipeline
+1. Follow the instructions in [`data/README.md`](data/README.md) to place the building-footprint tiles and administrative boundaries inside `data/`.
+2. Launch Jupyter and run all cells in **`notebooks/main.ipynb`**:
+   ```bash
+   jupyter notebook notebooks/main.ipynb
+   ```
 
 ---
 
