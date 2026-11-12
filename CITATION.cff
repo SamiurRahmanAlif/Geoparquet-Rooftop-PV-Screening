@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this software or geospatial processing architecture, please cite it as below."
+title: "Large-Scale Geospatial Data Processing for Rooftop PV Screening Using GeoParquet: Spatial Attribution and National Building-Footprint Analysis"
+authors:
+  - family-names: "Alif"
+    given-names: "Samiur Rahman"
+  - family-names: "Shuvo"
+    given-names: "Md Muslim Uddin"
+  - family-names: "Dhrubo"
+    given-names: "Ahmed Faizul Haque"
+  - family-names: "Hasan"
+    given-names: "ASM Jahid"
+  - family-names: "Qayum"
+    given-names: "Mohammad Abdul"
+  - family-names: "Khan"
+    given-names: "Mohammad Ashrafuzzaman"
+  - family-names: "Sajjad"
+    given-names: "Mohsin"
+year: 2026
+repository-code: "https://github.com/SamiurRahmanAlif/Geoparquet-Rooftop-PV-Screening"
+license: MIT
