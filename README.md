@@ -10,7 +10,7 @@ A reproducible, modular geospatial big data processing architecture for national
 
 ## Overview
 
-Assessing distributed rooftop PV potential at a national scale is constrained by the storage overhead, coordinate-system requirements, and spatial attribution complexities of multi-million-polygon building-footprint inventories. This repository provides the computational workflow accompanying the paper *"Large-Scale Geospatial Data Processing for Rooftop PV Screening Using GeoParquet: Spatial Attribution and National Building-Footprint Analysis"*.
+Assessing distributed rooftop PV potential at a national scale is constrained by storage overhead, coordinate-system requirements, and the complexities of spatial attribution in multi-million-polygon building-footprint inventories. This repository provides the computational workflow accompanying the paper *"Large-Scale Geospatial Data Processing for Rooftop PV Screening Using GeoParquet: Spatial Attribution and National Building-Footprint Analysis"*.
 
 Evaluated across **15,189,620 unique building footprints** in Bangladesh, the framework demonstrates:
 
