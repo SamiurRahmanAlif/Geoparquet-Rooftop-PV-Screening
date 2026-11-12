@@ -218,3 +218,11 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Ignore large geospatial datasets
+data/raw/*
+data/processed/*
+*.geojson
+*.parquet
+*.geoparquet
+!data/sample/*
