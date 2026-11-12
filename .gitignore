@@ -226,3 +226,12 @@ data/processed/*
 *.parquet
 *.geoparquet
 !data/sample/*
+
+# Ignore virtual environment & large datasets
+.venv/
+data/*
+!data/README.md
+*.geojson
+*.parquet
+*.geoparquet
+*.csv
