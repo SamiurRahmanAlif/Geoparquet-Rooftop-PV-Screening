@@ -157,7 +157,7 @@ If you use this codebase or architectural workflow in your research, please cite
   author  = {Alif, Samiur Rahman and Shuvo, Md Muslim Uddin and Dhrubo, Ahmed Faizul Haque and Hasan, ASM Jahid and Qayum, Mohammad Abdul and Khan, Mohammad Ashrafuzzaman and Sajjad, Mohsin},
   year    = {2026},
   doi     = {10.5281/zenodo.24158060},
-  url     = {[https://doi.org/10.5281/zenodo.24158060](https://doi.org/10.5281/zenodo.24158060)}
+  url     = {https://doi.org/10.5281/zenodo.24158060}
 }
 ```
 
